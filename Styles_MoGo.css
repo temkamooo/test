@@ -1,0 +1,241 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Kaushan Script', cursive; */
+    font-size: 15px;
+    line-height: 1.6;
+    color: #363636;
+    margin: 0;
+}
+
+*,      /* параметры применятся для всех тегов */
+*:before,    /* применяется для всех псевдоэлементов */
+*:after {
+    /* -webkit-" - для поддержки более ранних версий */
+    box-sizing: border-box; /* Применяется для изменения алгоритма расчета ширины и высоты элемента.
+      Источник - http://htmlbook.ru/css/box-sizing
+
+        Согласно спецификации CSS ширина блока складывается из ширины контента (width), значений отступов (margin), полей (padding) и границ (border). Аналогично обстоит и с высотой блока.
+
+        box-sizing позволяет изменить этот алгоритм, чтобы свойства width и height задавали размеры не контента, а размеры блока.
+
+         content-box - основывается на стандартах CSS, при этом свойства width и height задают ширину и высоту контента и не включают в себя значения отступов, полей и границ.
+
+        border-box - свойства width и height включают в себя значения полей и границ, но не отступов (margin). Эта модель используется браузером Internet Explorer в режиме несовместимости.
+
+        padding-box - свойства width и height включают в себя значения полей, но не отступов (margin) и границ (border).
+
+        inherit - наследует значение родителя.*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* header */
+.header {
+    padding-top: 30px;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header_inner {
+    display: flex; /* Элемент становится flexbox контейнером, а его прямые потомки - элементами flexbox контейнера */
+    justify-content: space-between; /* Оставшееся пространство распределяется между элементами flexbox / grid */
+    align-items: center; /* выравнивание эл по цетру */
+}
+
+.header_logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* header_nav */
+.header_nav {
+    font-size: 14px;
+    text-transform: uppercase; /* управление текстом (преобразование в заглавный или прописной)
+
+       capitalize - первый символ каждого слова в предложении будет заглавным. Остальные символы свой вид не меняют
+
+        lowercase - все символы текста становятся строчными (нижний регистр)
+
+        uppercase - все символы текста становятся прописными (верхний регистр)
+
+        none - не меняет регистр символов
+
+        inherit - наследует значение родителя */
+}
+
+.header_nav_link {
+    display: inline-block; /*  */
+    vertical-align: top; /* Вертикальное выравнивание
+        top - по верхней строчке среди элементов
+        middle - по центральной строчке среди элементов
+        bottom - по нижней строчке среди элементов */
+    margin: 0 15px;
+    position: relative;
+
+    color: #ffffff;
+    text-decoration: none; /* отмена эффетов (подчеркивание) */
+
+    transition: color .1s linear; /* для плавного эффекта */
+}
+
+.header_nav_link:after {
+    content: "";
+    width: 100%;
+    height: 3px;
+
+    background-color: #f5e28e;
+    opacity: 0;
+
+    transition: opacity .1s linear;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.header_nav_link:hover {
+    color: #f5e28e;
+}
+
+.header_nav_link:hover:after,
+.header_nav_link.active:after {
+    opacity: 1;
+}
+
+.header_nav_link:active {
+    color: #f5e28e;
+}
+
+/* intro */
+.intro {
+    display: flex;
+    flex-direction: column; /* Элементы идут друг под другом сверху вниз и по умолчанию занимают всю ширину flexbox контейнера */
+    justify-content: center; /* Элементы flexbox / grid центрированы вдоль главной оси контейнера */
+
+    width: 100%;
+    height: 100vh;
+
+    background: url("baner_01.jpg") center no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover; /* cover - на всю площадь экрана */
+}
+
+.intro_inner {
+    text-align: center;
+}
+
+.intro_suptitle {
+    width: 100%;
+    max-width: 600px;
+    margin: 80px auto 20px;
+
+    color: #ffffff;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 72px;
+}
+
+.intro_title {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+
+    font-size: 150px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+
+    line-height: 1;
+}
+
+.intro_title:after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    display: block;
+    margin: 70px auto 50px;
+    background-color: #ffffff;
+}
+
+/* button */
+.intro_btn {
+
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 35px;
+    margin-bottom: 150px;
+
+    border: 3px solid #ffffff;
+
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+
+    transition: background-color, color .2s;
+
+}
+
+.intro_btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+
+}
+
+/* slider */
+.slider {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.slider_item {
+    width: 23%;
+    padding: 20px 0;
+    position: relative;
+
+    border-top: 3px solid #8dfcff;
+
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    opacity: 60%;
+}
+
+.slider_item.active {
+    opacity: 1;
+}
+
+.slider_item.active:before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    top: -3px;
+    left: 0;
+    background-color: #f38181;
+
+    position: absolute;
+}
+
+.slider_num {
+    font-size: 24px;
+    font-weight: bold;
+}
